@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/modeeq/mdaMovies/issues"
   },
-  "homepage": "https://github.com/modeeq/mdaMovies#readme"
+  "homepage": "https://github.com/modeeq/mdaMovies#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0"
+  }
 }

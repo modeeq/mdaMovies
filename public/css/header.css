@@ -1,0 +1,23 @@
+.ui.secondary.pointing.menu{
+	opacity: 1;
+}
+#menu .item{
+ 	color: white;
+  }
+  #menu .item:hover{
+  	color: gray;
+}
+ .ui.secondary.pointing.menu{
+ 	border-bottom:1px solid gray;
+ }
+ 
+ .ui.secondary.pointing.menu .active.item{
+ 	border-color: white;
+ }
+  .ui.secondary.pointing.menu .active.item:hover{
+  	 	border-bottom:1px solid white;
+  	 	color: gray;
+}
+ #name p{
+ 	color: white;
+ }

@@ -22,6 +22,9 @@ body{
 	color: gray;
 
 }
+.fa-chevron-right:hover{
+	color: white;
+}
 .section{
 	width: 99%;
 	height: 320px;
@@ -116,20 +119,4 @@ font-weight: bold;
 	background:#a5a5a5;
 	color: white;
   }
- .trailer{
- 	position: fixed;
-  	top: 2%;
-  	left:2.5%;
-  	border:2px solid red;
-
-   }
  
-.trailer #close{
-	 position: absolute;
-	 left: 98%; 
-	 color: gray;
-	 z-index: 100;
- }
-.trailer #close:hover{
- 	 color: white;
-}

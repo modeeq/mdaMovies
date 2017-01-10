@@ -1,0 +1,22 @@
+body{
+	background: black;
+}
+
+.trailer{
+ 	position: fixed;
+  	top: -30px;
+  	left:20px;
+ 
+   }
+ 
+.trailer #close{
+	 position: absolute;
+	 left: 98%; 
+	 top: 7%;
+	 color: gray;
+	 z-index: 100;
+
+ }
+.trailer #close:hover{
+ 	 color: white;
+}

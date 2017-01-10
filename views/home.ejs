@@ -3,119 +3,72 @@
 <div class="containr"> 
 <div class="section"> 
 <p>UPCOMING</p>
- <div class="movie">
- 
-	<div class="movie_Header"> 
- 	 	 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+		 
 
-		<p><em>12/2/16</em></p>
-		<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA4NDg3NzYxMF5BMl5BanBnXkFtZTcwNTgyNzkyNw@@._V1_UY1200_CR90,0,630,1200_AL_.jpg">
-	
+<% for(var i = 0; i < 11; i++){%>
+	<div class="movie">
+	<%var rate = movies.results[i].vote_average %>
+   		
+
+	<div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=movies.results[i].release_date%></em></p>
+        <img src="https://image.tmdb.org/t/p/w500/<%=movies.results[i].poster_path%>">
 	</div>
- 
-	<div class="movie_interaction">
-		<a href="">	<i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a> 
-	 	<a href="">	<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a> 
-	 	<p><em>1 hr 20 min</em></p> 
 
-	 </div>
-
- 	 
- 
-
- 	<div class="movie_trailer" >
- 		<a href="/trailer/frdj1zb9sMY">
-		<i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a> 
-
-
-
-
-
- 	</div>
-
- 
-
+ <div class="movie_interaction">
+    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+    <p><em>1 hr 20 min</em></p>
 </div>
- <div class="movie">
- 
-	<div class="movie_Header"> 
- 	 	 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
 
-		<p><em>12/2/16</em></p>
-		<img src="http://spotlightreport.net/wp-content/uploads/2015/03/fast-and-furious-7-poster-australia.jpg">
-	
-	</div>
- 
-	<div class="movie_interaction">
-		<a href="">	<i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a> 
-	 	<a href="">	<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a> 
-	 	<p><em>1 hr 20 min</em></p> 
-
-	 </div>
-
- 	 
- 
-
- 	<div class="movie_trailer" >
- 		<a href="/trailer/frdj1zb9sMY">
-		<i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a> 
-
-
-
-
-
- 	</div>
-
- 
-
+<div class="movie_trailer">
+    <a href="/trailer/frdj1zb9sMY">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
 </div>
-        <i class="fa fa-chevron-right fa-3x" aria-hidden="true" class="next"></i>
-
- 
-  </div>
- <div class="section">
- <p>POPULAR</p> 
-<div class="movie">
- 
-	<div class="movie_Header"> 
- 	 	 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
-
-		<p><em>12/2/16</em></p>
-		<img src="http://cdn.collider.com/wp-content/uploads/fast-and-furious-7-poster.jpg">
-	
-	</div>
- 
-	<div class="movie_interaction">
-		<a href="">	<i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a> 
-	 	<a href="">	<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a> 
-	 	<p><em>1 hr 20 min</em></p> 
-
-	 </div>
-
- 	 
- 
-
- 	<div class="movie_trailer">
-		<a href="trailer/sC9abcLLQpI">
-	    <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a> 
- 	</div>
-
-
-    
-
 </div>
-           <i class="fa fa-chevron-right fa-3x" aria-hidden="true" class="next"></i>
 
+
+<%}%>
+<%function rateFormate(rating){%>
+ 	
+  	<% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
+
+		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
+
+ 	 <%}%>
+ 	 <% if( Math.floor(rating)/2 %1 !=0){ %>
+ 	 		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+
+ 	 <%}%>
+ 
+ <%}%>
+ 
+
+<div class="section">
+    <p>POPULAR</p>
+    <div class="movie">
+        <div class="movie_Header">
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
+            <p><em>12/2/16</em></p>
+            <img src="http://cdn.collider.com/wp-content/uploads/fast-and-furious-7-poster.jpg">
+        </div>
+        <div class="movie_interaction">
+            <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+            <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+            <p><em>1 hr 20 min</em></p>
+        </div>
+        <div class="movie_trailer">
+            <a href="trailer/sC9abcLLQpI">
+                <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+        </div>
+    </div>
+    <i class="fa fa-chevron-right fa-3x" aria-hidden="true" class="next"></i>
 </div>
+
  <div class="section">
  <p>PLAYING NOW</p>
  <div class="movie">

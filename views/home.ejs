@@ -2,18 +2,49 @@
 
 <div class="containr"> 
 <div class="section"> 
-<p>UPCOMING</p>
-		 
-
-<% for(var i = 0; i < 11; i++){%>
+<p>New Releases</p>
+ 
+<% for(var i = 0; i < 8; i++){%>
 	<div class="movie">
-	<%var rate = movies.results[i].vote_average %>
-   		
+	<%var rate = playing_movies[i].vote_average %>
+ 
 
 	<div class="movie_Header">
     <%=rateFormate(rate)%>
-        <p><em><%=movies.results[i].release_date%></em></p>
-        <img src="https://image.tmdb.org/t/p/w500/<%=movies.results[i].poster_path%>">
+        <p><em><%=playing_movies[i].release_date%></em></p>
+        <img src="https://image.tmdb.org/t/p/w500/<%=playing_movies[i].poster_path%>">
+	</div>
+
+ <div class="movie_interaction">
+    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+    <p><em><%=playing_movies[i].runtime%></em></p>
+</div>
+
+<div class="movie_trailer">
+     	<a href="/trailer/<%=playing_movies[i].id%>">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+</div>
+</div>
+
+
+<%}%>
+ 
+  
+ </div>
+
+  
+<div class="section"> 
+<p>Suggestions For You</p>
+ 
+<% for(var i = 0; i <  8; i++){%>
+	<div class="movie">
+	<%var rate = top_movies[i].vote_average %>
+
+	<div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=top_movies[i].release_date%></em></p>
+        <img src="https://image.tmdb.org/t/p/w500/<%=top_movies[i].poster_path%>">
 	</div>
 
  <div class="movie_interaction">
@@ -23,93 +54,107 @@
 </div>
 
 <div class="movie_trailer">
-    <a href="/trailer/frdj1zb9sMY">
+ 		 
+     	<a href="/trailer/<%=top_movies[i].id%>">
         <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+        
 </div>
+ 
 </div>
-
-
 <%}%>
-<%function rateFormate(rating){%>
- 	
+
+ 
+ 
+  
+ </div>
+
+
+
+
+<div class="section"> 
+<p>Popular movies</p>
+ 
+<% for(var i = 0; i < 8; i++){%>
+	<div class="movie">
+	<%var rate = popular_movies[i].vote_average %>
+ 	<div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=popular_movies[i].release_date%></em></p>
+        <img src="https://image.tmdb.org/t/p/w500/<%=popular_movies[i].poster_path%>">
+	</div>
+
+ <div class="movie_interaction">
+    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+    <p><em>1 hr 20 min</em></p>
+</div>
+
+<div class="movie_trailer">
+ 		 
+     	<a href="/trailer/<%=popular_movies[i].id%>">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+        
+</div>
+ </div>
+
+ 
+ 
+  <%}%>
+ </div>
+
+<div class="section"> 
+<p>Latest movies</p>
+ 
+<% for(var i = 0; i < 8; i++){%>
+  <div class="movie">
+  <%var rate = upcoming_movies[i].vote_average %>
+  <div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=upcoming_movies[i].release_date%></em></p>
+        <img src="https://image.tmdb.org/t/p/w500/<%=upcoming_movies[i].poster_path%>">
+  </div>
+
+ <div class="movie_interaction">
+    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+    <p><em>1 hr 20 min</em></p>
+</div>
+
+<div class="movie_trailer">
+     
+      <a href="/trailer/<%=upcoming_movies[i].id%>">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+        
+</div>
+ </div>
+
+ 
+ 
+  <%}%>
+ </div>
+
+
+
+
+ <%function rateFormate(rating){%>
+ 	<% var stars=0;%>
   	<% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
 
 		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
+		<% stars = stars +1;%>
 
  	 <%}%>
  	 <% if( Math.floor(rating)/2 %1 !=0){ %>
  	 		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+ 	 		 <%stars = stars+1;%>
 
  	 <%}%>
- 
+ 	 <%for(var s = stars; s < 5; s++){%>
+ 	 		 <i class="fa fa-star-o" aria-hidden="true" "></i> 
+ 	 <%}%>
+  		
  <%}%>
- 
 
-<div class="section">
-    <p>POPULAR</p>
-    <div class="movie">
-        <div class="movie_Header">
-            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-            <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
-            <p><em>12/2/16</em></p>
-            <img src="http://cdn.collider.com/wp-content/uploads/fast-and-furious-7-poster.jpg">
-        </div>
-        <div class="movie_interaction">
-            <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-            <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-            <p><em>1 hr 20 min</em></p>
-        </div>
-        <div class="movie_trailer">
-            <a href="trailer/sC9abcLLQpI">
-                <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
-        </div>
-    </div>
-    <i class="fa fa-chevron-right fa-3x" aria-hidden="true" class="next"></i>
-</div>
-
- <div class="section">
- <p>PLAYING NOW</p>
- <div class="movie">
- 
-	<div class="movie_Header"> 
- 	 	 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
-
-		<p><em>12/2/16</em></p>
-		<img src="http://www.impawards.com/2013/posters/fast_and_furious_six_ver7.jpg">
-	
-	</div>
- 
-	<div class="movie_interaction">
-		<a href="">	<i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a> 
-	 	<a href="">	<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a> 
-	 	<p><em>1 hr 20 min</em></p> 
-
-	 </div>
-
- 	 
- 
-
- 	<div class="movie_trailer">
-		<a href="">	<i class="fa fa-play-circle-o fa-lg" aria-hidden="true" class="play"></i>trailer </a> 
- 	</div>
-
-
-    </div>
-         <i class="fa fa-chevron-right fa-3x" aria-hidden="true" class="next"></i>
-
-</div>
- 
-
-
- 
-  
- </div>
- 
      <script type="text/javascript" src="../js/home.js"></script>
 
 

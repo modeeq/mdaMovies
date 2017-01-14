@@ -1,30 +1,33 @@
 var   express     = require('express'),
 	  request     = require('request');
-
 var router  = express.Router();
 var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
 
- var Playing =[];
-	Popular = [],
-	Top =[],
-	Upcoming=[],
-	Search=[];
+ var Playing  =[],
+	 Popular  =[],
+	 Top      =[],
+	 Upcoming =[],
+	 Search   =[];
  
+
  //search movies by type
  function search_movie(type){
+  
  	 var movies_api = 'https://api.themoviedb.org/3/movie/'+type+'?api_key='+api_key+'&language=en-US&page=1';
  	 request(movies_api,function(err,response,body){
     	if (!err && response.statusCode == 200) {
     	var movies = 	JSON.parse(body);
+    	console.log('------------> '+movies.results.length);
     		for(var i = 0; i < 8; i++){
     			movie_details(movies.results[i].id,type);
- 
+  
        		}
  	
 
     	}
     	else{
      		console.log(err);
+     		console.log('search movie faild');
     	}
      });
 
@@ -34,14 +37,20 @@ var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
 
 //get movie details
  function movie_details(id,type){
-	var movie_api ='https://api.themoviedb.org/3/movie/'+id+'?api_key='+api_key+'&language=en-US';
+     Search.length 	 = 	0;
+	 Playing.length  = 	0;
+	 Popular.length  =  0;
+	 Top.length 	 =	0;
+	 Upcoming.length = 	0;
+	 Search.length	 = 	0;
+
+  	var movie_api ='https://api.themoviedb.org/3/movie/'+id+'?api_key='+api_key+'&language=en-US';
 	request(movie_api,function(err,response,body){
-		if (!err & response.statusCode == 200) {
+ 		if (!err && response.statusCode == 200) {
 			var movie = JSON.parse(body);
- 
-			switch(type){
+  			switch(type){
 				case "popular":
-					  Popular.push(movie);
+ 					  Popular.push(movie);
 
 				break;
 				case "now_playing":
@@ -57,7 +66,8 @@ var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
 
 				break;
 				case "search":
-					Search.push(movie);
+  					  Search.push(movie);
+					 
 				break;
 
 
@@ -67,6 +77,8 @@ var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
 		else{
  
 			console.log(err);
+			console.log('movie details search faild');
+
 		}
 
  	});

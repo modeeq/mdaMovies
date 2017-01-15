@@ -18,7 +18,7 @@
  <div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em><%=playing_movies[i].runtime%></em></p>
+    <p><em><%=playing_movies[i].genres[0].name%></em></p>
 </div>
 
 <div class="movie_trailer">
@@ -50,7 +50,7 @@
  <div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em>1 hr 20 min</em></p>
+    <p><em><%=top_movies[i].genres[0].name%></em></p>
 </div>
 
 <div class="movie_trailer">
@@ -86,7 +86,7 @@
  <div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em>1 hr 20 min</em></p>
+    <p><em><%=popular_movies[i].genres[0].name%></em></p>
 </div>
 
 <div class="movie_trailer">
@@ -117,7 +117,7 @@
  <div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em>1 hr 20 min</em></p>
+    <p><em><%=upcoming_movies[i].genres[0].name%></em></p>
 </div>
 
 <div class="movie_trailer">

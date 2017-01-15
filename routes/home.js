@@ -3,8 +3,7 @@ var   express          = require('express'),
 	  api  		 	   = require('../movieApi');
  
 var router  = express.Router();
-var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
- 
+  
  function allMovies(){
  
  api.search_movie('popular');
@@ -13,17 +12,31 @@ var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
  api.search_movie('upcoming');
  
  }
- 
+	allMovies();
+
 router.get('/',function(req, res){
-   allMovies();
-   res.render('home',{
+    
+
+     var interval = setInterval(function(){
+     	if (api.Playing.length >= 7) {
+     		 clearInterval(interval);
+
+     		console.log("| yes");
+			res.render('home',{
    					  playing_movies:api.Playing,
    					  popular_movies:api.Popular,
    					  top_movies:api.Top,
    					  upcoming_movies:api.Upcoming
-   					  
+
    					});
 
+ 
+     	}
+     	else{
+     		console.log('_no_');
+     	}
+     },500);
+    
 });
 
  

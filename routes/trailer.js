@@ -12,6 +12,7 @@ router.get('/:id',function(req, res){
  	var trailer = JSON.parse(body);
 
 	 if (!err && response.statusCode == 200) {
+	 	 
   			 trailer = trailer.results[0].key;
  	 		 res.render('trailer',{url:trailer});
   		}

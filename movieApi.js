@@ -12,7 +12,7 @@ var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
 
  //search movies by type
  function search_movie(type){
-  
+ 
  	 var movies_api = 'https://api.themoviedb.org/3/movie/'+type+'?api_key='+api_key+'&language=en-US&page=1';
  	 request(movies_api,function(err,response,body){
     	if (!err && response.statusCode == 200) {
@@ -37,13 +37,9 @@ var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
 
 //get movie details
  function movie_details(id,type){
-     Search.length 	 = 	0;
-	 Playing.length  = 	0;
-	 Popular.length  =  0;
-	 Top.length 	 =	0;
-	 Upcoming.length = 	0;
-	 Search.length	 = 	0;
-
+        if(Search.length != 0){
+        Search.length = 0;
+    }
   	var movie_api ='https://api.themoviedb.org/3/movie/'+id+'?api_key='+api_key+'&language=en-US';
 	request(movie_api,function(err,response,body){
  		if (!err && response.statusCode == 200) {

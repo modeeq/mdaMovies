@@ -1,3 +1,3 @@
-close.addEventListener('click',function(){
-	window.location.replace('/');
- });
+close.addEventListener('click', function() {
+    window.location.replace('/');
+});

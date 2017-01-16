@@ -1,44 +1,54 @@
-.info .mainImage img{
-	position: fixed;
-   	top: 6.5%;
- }
-.content{
- position: absolute; 
- margin-left: 13%;
-width: 68%;
- height: 93.5%;
- left: 35%;
- top: 6.5%;
- }
-.content h1{
- 	font-size: 60px;
- 	border-bottom: 2px solid #1b1b1b;
+.info .mainImage img {
+    position: fixed;
+    top: 6.5%;
 }
-.content .description{
-     text-align: center;
+
+.content {
+    position: absolute;
+    margin-left: 13%;
+    width: 68%;
+    height: 93.5%;
+    left: 35%;
+    top: 6.5%;
+}
+
+.content h1 {
+    font-size: 60px;
+    border-bottom: 2px solid #1b1b1b;
+}
+
+.content .description {
+    text-align: center;
     position: absolute;
     font-weight: normal;
-	width: 60%; 
- }
-.extra{
-  	position: fixed;
-	padding: 1%;
-	width: 50%;
-	left: 66%;
-	top: 21.8%;
- }
- .fa-star , .fa-star-o ,.fa-star-half-o{
- 	color: #fab400;
- }
-.fa-times-circle{
- 	position: relative; 
- 	left: 70%; 
- 	top: 1%;
- 	color: white;
- }
-.fa-times-circle:hover{
-	color: gray;
+    width: 60%;
 }
-.related{
- 	border-top: 2px solid #1b1b1b;
+
+.extra {
+    position: fixed;
+    padding: 1%;
+    width: 50%;
+    left: 66%;
+    top: 21.8%;
+}
+
+.fa-star,
+.fa-star-o,
+.fa-star-half-o {
+    color: #fab400;
+}
+
+.fa-times-circle {
+    position: relative;
+    left: 70%;
+    top: 1%;
+    color: white;
+}
+
+.fa-times-circle:hover {
+    color: gray;
+}
+
+.related {
+    border-top: 2px solid #1b1b1b;
 }

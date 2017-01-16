@@ -1,66 +1,52 @@
 <%include ./partials/header%>
 
-<div class="containr"> 
-<div class="section"> 
-<p>New Releases</p>
- 
-<% for(var i = 0; i < 8; i++){%>
-	<div class="movie">
-	<%var rate = playing_movies[i].vote_average %>
- 
-
-	<div class="movie_Header">
-    <%=rateFormate(rate)%>
-        <p><em><%=playing_movies[i].release_date%></em></p>
-        <img src="https://image.tmdb.org/t/p/w500/<%=playing_movies[i].poster_path%>">
-	</div>
-
- <div class="movie_interaction">
-    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em><%=playing_movies[i].genres[0].name%></em></p>
+<div class="container"> 
+<div class="section">
+    <p>New Releases</p>
+    <% for(var i = 0; i < 8; i++){%>
+        <div class="movie" id="<%=playing_movies[i].id%>">
+            <%var rate = playing_movies[i].vote_average %>
+                <div class="movie_Header">
+                    <%=rateFormate(rate)%>
+                        <p><em><%=playing_movies[i].release_date%></em></p>
+                        <img src="https://image.tmdb.org/t/p/w500/<%=playing_movies[i].poster_path%>">
+                </div>
+                <div class="movie_interaction">
+                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                    <p><em><%=playing_movies[i].genres[0].name%></em></p>
+                </div>
+                <div class="movie_trailer">
+                    <a href="/trailer/<%=playing_movies[i].id%>">
+                        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+                </div>
+        </div>
+        <%}%>
 </div>
 
-<div class="movie_trailer">
-     	<a href="/trailer/<%=playing_movies[i].id%>">
-        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
-</div>
-</div>
-
-
-<%}%>
- 
-  
- </div>
 
   
-<div class="section"> 
-<p>Suggestions For You</p>
- 
-<% for(var i = 0; i <  8; i++){%>
-	<div class="movie">
-	<%var rate = top_movies[i].vote_average %>
+<div class="section">
+    <p>Suggestions For You</p>
+    <% for(var i = 0; i <  8; i++){%>
+        <div class="movie" id="<%=top_movies[i].id%>">
+            <%var rate = top_movies[i].vote_average %>
+                <div class="movie_Header">
+                    <%=rateFormate(rate)%>
+                        <p><em><%=top_movies[i].release_date%></em></p>
+                        <img src="https://image.tmdb.org/t/p/w500/<%=top_movies[i].poster_path%>">
+                </div>
+                <div class="movie_interaction">
+                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                    <p><em><%=top_movies[i].genres[0].name%></em></p>
+                </div>
+                <div class="movie_trailer">
+                    <a href="/trailer/<%=top_movies[i].id%>">
+                        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+                </div>
+        </div>
 
-	<div class="movie_Header">
-    <%=rateFormate(rate)%>
-        <p><em><%=top_movies[i].release_date%></em></p>
-        <img src="https://image.tmdb.org/t/p/w500/<%=top_movies[i].poster_path%>">
-	</div>
-
- <div class="movie_interaction">
-    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em><%=top_movies[i].genres[0].name%></em></p>
-</div>
-
-<div class="movie_trailer">
- 		 
-     	<a href="/trailer/<%=top_movies[i].id%>">
-        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
-        
-</div>
- 
-</div>
 <%}%>
 
  
@@ -71,69 +57,59 @@
 
 
 
-<div class="section"> 
-<p>Popular movies</p>
- 
-<% for(var i = 0; i < 8; i++){%>
-	<div class="movie">
-	<%var rate = popular_movies[i].vote_average %>
- 	<div class="movie_Header">
-    <%=rateFormate(rate)%>
-        <p><em><%=popular_movies[i].release_date%></em></p>
-        <img src="https://image.tmdb.org/t/p/w500/<%=popular_movies[i].poster_path%>">
-	</div>
-
- <div class="movie_interaction">
-    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em><%=popular_movies[i].genres[0].name%></em></p>
-</div>
-
-<div class="movie_trailer">
- 		 
-     	<a href="/trailer/<%=popular_movies[i].id%>">
-        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
-        
-</div>
- </div>
+<div class="section">
+    <p>Popular movies</p>
+    <% for(var i = 0; i < 8; i++){%>
+        <div class="movie" id="<%=popular_movies[i].id%>">
+            <%var rate = popular_movies[i].vote_average %>
+                <div class="movie_Header">
+                    <%=rateFormate(rate)%>
+                        <p><em><%=popular_movies[i].release_date%></em></p>
+                        <img src="https://image.tmdb.org/t/p/w500/<%=popular_movies[i].poster_path%>">
+                </div>
+                <div class="movie_interaction">
+                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                    <p><em><%=popular_movies[i].genres[0].name%></em></p>
+                </div>
+                <div class="movie_trailer">
+                    <a href="/trailer/<%=popular_movies[i].id%>">
+                        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+                </div>
+        </div>
 
  
  
   <%}%>
  </div>
 
-<div class="section"> 
-<p>Latest movies</p>
- 
-<% for(var i = 0; i < 8; i++){%>
-  <div class="movie">
-  <%var rate = upcoming_movies[i].vote_average %>
-  <div class="movie_Header">
-    <%=rateFormate(rate)%>
-        <p><em><%=upcoming_movies[i].release_date%></em></p>
-        <img src="https://image.tmdb.org/t/p/w500/<%=upcoming_movies[i].poster_path%>">
-  </div>
-
- <div class="movie_interaction">
-    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em><%=upcoming_movies[i].genres[0].name%></em></p>
-</div>
-
-<div class="movie_trailer">
-     
-      <a href="/trailer/<%=upcoming_movies[i].id%>">
-        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
-        
-</div>
- </div>
+<div class="section">
+    <p>Latest movies</p>
+    <% for(var i = 0; i < 8; i++){%>
+        <div class="movie" id="<%=upcoming_movies[i].id%>">
+            <%var rate = upcoming_movies[i].vote_average %>
+                <div class="movie_Header">
+                    <%=rateFormate(rate)%>
+                        <p><em><%=upcoming_movies[i].release_date%></em></p>
+                        <img src="https://image.tmdb.org/t/p/w500/<%=upcoming_movies[i].poster_path%>">
+                </div>
+                <div class="movie_interaction">
+                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                    <p><em><%=upcoming_movies[i].genres[0].name%></em></p>
+                </div>
+                <div class="movie_trailer">
+                    <a href="/trailer/<%=upcoming_movies[i].id%>">
+                        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+                </div>
+        </div>
 
  
  
   <%}%>
  </div>
 
-
+ 
 
 <!-- formating rate -->
  <%function rateFormate(rating){%>

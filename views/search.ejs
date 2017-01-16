@@ -3,7 +3,7 @@
 
 <p>results </p>
 <% for(var i = 0; i < movies.length; i++){%>
-	<div class="movie">
+	<div class="movie" id="<%=movies[i].id%>">
   
 	<%var rate = movies[i].vote_average %>
  
@@ -11,14 +11,23 @@
 	<div class="movie_Header">
     <%=rateFormate(rate)%>
         <p><em><%=movies[i].release_date%></em></p>
-        <img src="https://image.tmdb.org/t/p/w500/<%=movies[i].poster_path%>">
-	</div>
+         <%if(movies[i].poster_path == null){%>
+          <h3 style="color: white; text-align: center;"><%=movies[i].original_title%></h3>
+ 
 
- <div class="movie_interaction">
+        <% }else{%>
+
+        <img src="https://image.tmdb.org/t/p/w500/<%=movies[i].poster_path%>">
+        <%}%>
+	</div>
+<div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <p><em><%=movies[i].runtime%></em></p>
+    <%if(movies[i].genres == ''){}else{%>
+        <p><em><%=movies[i].genres[0].name%></em></p>
+        <%}%>
 </div>
+
 
 <div class="movie_trailer">
      	<a href="/trailer/<%=movies[i].id%>">

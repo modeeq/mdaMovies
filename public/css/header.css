@@ -1,31 +1,37 @@
-.ui.secondary.pointing.menu{
-	opacity: 1;
+.ui.secondary.pointing.menu {
+    opacity: 1;
 }
-#menu{
-	position: fixed;
-	background: black;
-	z-index: 1000;
-	width: 100%;
-	top:0;
-	margin-bottom: 10%;
+
+#menu {
+    position: fixed;
+    background: black;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    margin-bottom: 10%;
 }
-#menu .item{
- 	color: white;
-  }
-  #menu .item:hover{
-  	color: gray;
+
+#menu .item {
+    color: white;
 }
- .ui.secondary.pointing.menu{
- 	border-bottom:1px solid gray;
- }
- 
- .ui.secondary.pointing.menu .active.item{
- 	border-color: white;
- }
-  .ui.secondary.pointing.menu .active.item:hover{
-  	 	border-bottom:1px solid white;
-  	 	color: gray;
+
+#menu .item:hover {
+    color: gray;
 }
- #name p{
- 	color: white;
- }
+
+.ui.secondary.pointing.menu {
+    border-bottom: 1px solid gray;
+}
+
+.ui.secondary.pointing.menu .active.item {
+    border-color: white;
+}
+
+.ui.secondary.pointing.menu .active.item:hover {
+    border-bottom: 1px solid white;
+    color: gray;
+}
+
+#name p {
+    color: white;
+}

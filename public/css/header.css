@@ -1,6 +1,14 @@
 .ui.secondary.pointing.menu{
 	opacity: 1;
 }
+#menu{
+	position: fixed;
+	background: black;
+	z-index: 1000;
+	width: 100%;
+	top:0;
+	margin-bottom: 10%;
+}
 #menu .item{
  	color: white;
   }

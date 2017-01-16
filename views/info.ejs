@@ -1,0 +1,136 @@
+<%include ./partials/header%>
+<link rel="stylesheet" type="text/css" href="../css/info.css">
+ 
+<div class="info" >
+<div class="mainImage"> 
+    <img src="https://image.tmdb.org/t/p/w500/<%=movie[0].poster_path%>">
+</div>
+<div class="content"> 
+ 
+  <div class="description"> 
+   <h1><%=movie[0].original_title%></h1>
+
+  <p><em>Description</em></p>
+ <p><%=movie[0].overview%></p>
+ <%if(movie[0].release_date == ''){}else{%>
+  <p><em>Release date: </em> <%=movie[0].release_date%></p>
+<%}%>
+
+ <p>
+	<%for(var i = 0 ; i < movie[0].production_countries.length; i++){ %>
+		<% var country = movie[0].production_countries[i].iso_3166_1%>
+  	 <i class="<%=country.toLowerCase()%> flag" > </i>
+    <%}%>
+</p>
+
+ <%if(movie[0].vote_average == ''){}else{%>
+
+ 	<%var rate = movie[0].vote_average %>
+   <%=rateFormate(rate)%>
+   <%}%>
+<p class="item">  
+<%if(movie[0].genres.length > 5){ movie[0].genres.length = 5 }%>
+ <% for(var i = 0 ; i < movie[0].genres.length; i++){ %>
+   <div  class="ui red  horizontal label "><%=movie[0].genres[i].name%> </div>
+ <%}%>
+ </p>
+ <%if(movie[0].homepage == ''){}else{%>
+<a href="<%=movie[0].homepage%> " target="_blank"> Official website</a>
+ <%}%>
+ </p> 
+ <div class="related">
+
+<div class="section"> 
+   <%if(related.length >0){ %>
+ <p>Related Movies</p>
+
+<% }%>
+ <%for(i = 0; i < related.length; i++){%>
+ 
+  <div class="movie" id="<%=related[i].id%>">
+  <%var rate = related[i].vote_average %>
+ 
+
+  <div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=related[i].release_date%></em></p>
+        <img src="https://image.tmdb.org/t/p/w500/<%=related[i].poster_path%>">
+  </div>
+
+ <div class="movie_interaction">
+    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+ </div>
+
+<div class="movie_trailer">
+      <a href="/trailer/<%=related[i].id%>">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+</div>
+</div>
+
+<%}%>
+ 
+ 
+  
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+
+
+    </div> 
+<a href='/'>
+<i class="fa fa-times-circle fa-2x" aria-hidden="true" id="close" ></i>
+</a>
+ 
+ 
+ 
+     
+
+  </div> 
+
+  </div>
+ 
+ 
+ 
+
+ 
+ 
+<!-- formating rate -->
+ <%function rateFormate(rating){%>
+ 	<% var stars=0;%>
+  	<% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
+
+		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
+		<% stars = stars +1;%>
+
+ 	 <%}%>
+ 	 <% if( Math.floor(rating)/2 %1 !=0){ %>
+ 	 		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+ 	 		 <%stars = stars+1;%>
+
+ 	 <%}%>
+ 	 <%for(var s = stars; s < 5; s++){%>
+ 	 		 <i class="fa fa-star-o fa-lg" aria-hidden="true" "></i> 
+ 	 <%}%>
+  		
+ <%}%>
+ 
+ 
+     <script type="text/javascript" src="../js/home.js"></script>
+     <script type="text/javascript" src="../js/info.js"></script>

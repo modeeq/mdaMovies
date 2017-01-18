@@ -1,6 +1,6 @@
 var movie = document.querySelectorAll('.movie'),
     watch = document.querySelectorAll('.movie_trailer'),
-    close = document.querySelector('.info i');
+    close = document.querySelector('.movie_trailer i');
 info_display = document.querySelector('.info');
 
 watch.forEach(function(watch) {
@@ -22,6 +22,12 @@ movie.forEach(function(movie) {
 
 
     });
+
+
+});
+
+close.addEventListener('click', function() {
+    window.location.replace('http://localhost:3000');
 
 
 });

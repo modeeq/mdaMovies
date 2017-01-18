@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
 
 
         } else {
-            console.log('___Loading ... ___');
+           // console.log('___Loading ... ___');
         }
     }, 1);
 

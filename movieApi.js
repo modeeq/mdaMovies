@@ -49,7 +49,7 @@ function movie_details(id, type) {
         Related.length = 0;
     }
 
-
+api_key='72811077bbaf8163a4ec1469f54ec0fd';
 
     var movie_api = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + api_key + '&language=en-US';
     request(movie_api, function(err, response, body) {
@@ -82,7 +82,9 @@ function movie_details(id, type) {
                     break;
                 default:
                     Related.push(movie);
+
                     break;
+                 
 
 
             }

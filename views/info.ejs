@@ -60,12 +60,18 @@
  <div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+    <%if(related[i].genres == ''){}else{%>
+        <p style="margin-left:60px"><em><%=related[i].genres[0].name%></em></p>
+        <%}%>
+
  </div>
 
 <div class="movie_trailer">
       <a href="/trailer/<%=related[i].id%>">
         <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
 </div>
+
+
 </div>
 
 <%}%>

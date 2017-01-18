@@ -35,10 +35,9 @@ body {
 .section {
     width: 99%;
     height: 320px;
-    margin-left: 15px;
+    margin-left: 5px;
     overflow: hidden;
-    border-bottom: 1px solid #212121;
-    opacity: 1;
+     opacity: 1;
     margin: 10px 15px;
 }
 
@@ -88,8 +87,7 @@ body {
     width: 160px;
     height: 20px;
     font-size: 12px;
-    padding-left: 10px;
-}
+ }
 
 .movie_interaction i {
     color: white;
@@ -99,9 +97,7 @@ body {
     color: lightgreen;
 }
 
-.movie_interaction i {
-    margin: 2px;
-}
+ 
 
 .movie_interaction p {
     display: inline;

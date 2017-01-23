@@ -2,18 +2,29 @@ var express = require('express'),
     request = require('request'),
     api = require('../movieApi');
 
+var selectedMovie = {};
 
 var router = express.Router();
+ router.get('/:id', function(req, res) {
+   selectedMovie = {};
 
-router.get('/:id', function(req, res) {
-     api.movie_details(req.params.id,'info');
-     api.search_movie(req.params.id+'/recommendations');
+   api.search_movie(req.params.id +'/recommendations');
+    for(var i = 0 ; i < api.AllMovies.length; i++){
+        if(api.AllMovies[i].id == req.params.id){
+            selectedMovie =  api.AllMovies[i] ;
+        }
+
+
+    }
+
 
     var interval = setInterval(function() {
-        if (api.Info.length >= 1 && api.Related.length >= 3) {
+        if (selectedMovie != '' && api.Related.length >= 3) {
             clearInterval(interval);
-            res.render('info', { movie: api.Info, related: api.Related });
-         } else {
+            res.render('info', { movie: selectedMovie, related: api.Related });
+         // res.send(selectedMovie);
+
+          } else {
             //console.log('___Loading ... ___');
         }
     }, 1);

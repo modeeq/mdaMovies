@@ -1,8 +1,11 @@
-.info .mainImage img {
+.infoContainer .mainImage img {
     position: fixed;
     top: 6.5%;
 }
+.infoContainer .mainImage img:hover{
+    opacity: .7;
 
+}
 .content {
     position: absolute;
     margin-left: 13%;

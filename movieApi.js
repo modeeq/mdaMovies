@@ -9,7 +9,7 @@ var Playing = [],
     Upcoming = [],
     Search = [],
     Related = [],
-    Info = [];
+    AllMovies = [];
 
 
 //search movies by type
@@ -20,10 +20,15 @@ function search_movie(type) {
     request(movies_api, function(err, response, body) {
         if (!err && response.statusCode == 200) {
             var movies = JSON.parse(body);
-            console.log('------------> ' + movies.results.length);
+            console.log(type + ' ------------> ' + movies.results.length);
             for (var i = 0; i < 8; i++) {
-                movie_details(movies.results[i].id, type);
-
+                if(movies.results[i] == null){
+                    
+                 }
+                else{
+                     movie_details(movies.results[i].id, type);
+                }
+ 
             }
 
 
@@ -42,15 +47,12 @@ function movie_details(id, type) {
     if (Search.length != 0) {
         Search.length = 0;
     }
-    if (Info.length != 0) {
-        Info.length = 0;
-    }
+   
     if (Related.length != 0) {
         Related.length = 0;
     }
-
-api_key='72811077bbaf8163a4ec1469f54ec0fd';
-
+ 
+ 
     var movie_api = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + api_key + '&language=en-US';
     request(movie_api, function(err, response, body) {
         if (!err && response.statusCode == 200) {
@@ -58,30 +60,33 @@ api_key='72811077bbaf8163a4ec1469f54ec0fd';
             switch (type) {
                 case "popular":
                     Popular.push(movie);
+                    AllMovies.push(movie);
 
                     break;
                 case "now_playing":
                     Playing.push(movie);
+                    AllMovies.push(movie);
 
                     break;
                 case "top_rated":
                     Top.push(movie);
+                    AllMovies.push(movie);
 
                     break;
                 case "upcoming":
                     Upcoming.push(movie);
+                    AllMovies.push(movie);
 
                     break;
                 case "search":
                     Search.push(movie);
+                    AllMovies.push(movie);
 
                     break;
-                case "info":
-                    Info.push(movie);
-
-                    break;
+                
                 default:
                     Related.push(movie);
+                    AllMovies.push(movie);
 
                     break;
                  
@@ -108,6 +113,6 @@ module.exports = {
     Top: Top,
     Upcoming: Upcoming,
     Search: Search,
-    Info: Info,
-    Related: Related
+     Related: Related,
+    AllMovies:AllMovies
 }

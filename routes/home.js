@@ -12,21 +12,22 @@ function allMovies() {
     api.search_movie('upcoming');
 
 }
-allMovies();
-
+ 
 router.get('/', function(req, res) {
+      allMovies();
 
 
     var interval = setInterval(function() {
-        if (api.Playing.length >= 7 && api.Popular.length >= 7 && api.Top.length >= 7 && api.Upcoming.length >= 7) {
+        if (api.Playing.length >= 8 && api.Popular.length >= 8 && api.Top.length >= 8 && api.Upcoming.length >= 8) {
             clearInterval(interval);
 
-            console.log("| yes");
+            console.log("| all movies are ready");
             res.render('home', {
                 playing_movies: api.Playing,
                 popular_movies: api.Popular,
                 top_movies: api.Top,
-                upcoming_movies: api.Upcoming
+                upcoming_movies: api.Upcoming,
+                AllMovies:api.AllMovies
 
             });
 

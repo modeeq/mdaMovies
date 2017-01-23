@@ -35,9 +35,9 @@ router.post('/', function(req, res) {
 
 
             } else {
-                console.log('_no_');
+                console.log('_no_ search faild');
             }
-        }, 100);
+        }, 1);
 
     });
 

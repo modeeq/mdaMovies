@@ -1,24 +1,23 @@
 <%include ./partials/header%>
 
+<div class="result" style="margin:4% 0% 0% 1%;">
 
-<p>results </p>
+ <p>Results </p>
+ 
 <% for(var i = 0; i < movies.length; i++){%>
-	<div class="movie" id="<%=movies[i].id%>">
-  
+    <%if(movies[i].poster_path == null || movies[i].vote_average == 0){}else{%>
+  <div class="movie">
+
 	<%var rate = movies[i].vote_average %>
  
 
 	<div class="movie_Header">
     <%=rateFormate(rate)%>
         <p><em><%=movies[i].release_date%></em></p>
-         <%if(movies[i].poster_path == null){%>
-          <h3 style="color: white; text-align: center;"><%=movies[i].original_title%></h3>
- 
-
-        <% }else{%>
-
-        <img src="https://image.tmdb.org/t/p/w500/<%=movies[i].poster_path%>">
-        <%}%>
+          <span class="info" id="<%=movies[i].id%>"> 
+             <img src="https://image.tmdb.org/t/p/w500/<%=movies[i].poster_path%>">
+     
+        </span>
 	</div>
 <div class="movie_interaction">
     <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
@@ -33,11 +32,12 @@
      	<a href="/trailer/<%=movies[i].id%>">
         <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
 </div>
+  <%}%>
 </div>
 
-
+  
 <%}%>
- 
+ </div>
 
 <!-- formating rate -->
  <%function rateFormate(rating){%>

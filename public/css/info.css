@@ -2,10 +2,7 @@
     position: fixed;
     top: 6.5%;
 }
-.infoContainer .mainImage img:hover{
-    opacity: .7;
-
-}
+ 
 .content {
     position: absolute;
     margin-left: 13%;
@@ -54,3 +51,12 @@
 .related {
     border-top: 2px solid #1b1b1b;
 }
+.fa-play-circle{
+    color: white;
+    font-size: 130px;
+    position: fixed;
+    top: 40%;
+    left: 14.2%;
+    display: none;
+}
+ 

@@ -20,10 +20,10 @@ function search_movie(type) {
     request(movies_api, function(err, response, body) {
         if (!err && response.statusCode == 200) {
             var movies = JSON.parse(body);
-            console.log(type + ' ------------> ' + movies.results.length);
+             console.log(type + ' ------------> ' + movies.results.length);
             for (var i = 0; i < 8; i++) {
                 if(movies.results[i] == null){
-                    
+
                  }
                 else{
                      movie_details(movies.results[i].id, type);
@@ -104,6 +104,7 @@ function movie_details(id, type) {
     });
 
 }
+  
 
 module.exports = {
     search_movie: search_movie,

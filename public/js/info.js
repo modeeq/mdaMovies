@@ -10,7 +10,8 @@ trailer.addEventListener('mouseenter',function(){
   
 trailer.addEventListener('mouseleave',function(){
 			play.style.display = 'none';
- 
+   			trailer.style.opacity = 1;
+
  });
 
 

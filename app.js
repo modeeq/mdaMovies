@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 
-app.use('/', home);
+app.use('/', home.router);
 app.use('/trailer', trailer);
 app.use('/search', search);
 app.use('/info', info);

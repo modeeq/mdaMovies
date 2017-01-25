@@ -1,8 +1,8 @@
 <%include ./partials/header%>
  <div class="container"> 
  
-<div class="section">
-    <p>New Releases</p>
+ <div class="section">
+    <p>Now Playing</p>
     <% for(var i = 0; i < 8; i++){%>
         <div class="movie">
             <%var rate = playing_movies[i].vote_average %>
@@ -26,9 +26,7 @@
         <%}%>
 </div>
 
-
-  
-<div class="section">
+ <div class="section">
     <p>Suggestions For You</p>
     <% for(var i = 0; i <  8; i++){%>
         <div class="movie" id="<%=top_movies[i].id%>">
@@ -57,8 +55,9 @@
  
   
  </div>
+ 
 
-
+ 
 
 
 <div class="section">
@@ -89,8 +88,9 @@
   <%}%>
  </div>
 
+ 
 <div class="section">
-    <p>Latest movies</p>
+    <p>Our Top Picks</p>
     <% for(var i = 0; i < 8; i++){%>
         <div class="movie" id="<%=upcoming_movies[i].id%>">
             <%var rate = upcoming_movies[i].vote_average %>
@@ -117,26 +117,26 @@
   <%}%>
  </div>
 
- 
 
+ 
 <!-- formating rate -->
  <%function rateFormate(rating){%>
- 	<% var stars=0;%>
-  	<% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
+    <% var stars=0;%>
+    <% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
 
-		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
-		<% stars = stars +1;%>
+         <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
+        <% stars = stars +1;%>
 
- 	 <%}%>
- 	 <% if( Math.floor(rating)/2 %1 !=0){ %>
- 	 		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
- 	 		 <%stars = stars+1;%>
+     <%}%>
+     <% if( Math.floor(rating)/2 %1 !=0){ %>
+             <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+             <%stars = stars+1;%>
 
- 	 <%}%>
- 	 <%for(var s = stars; s < 5; s++){%>
- 	 		 <i class="fa fa-star-o" aria-hidden="true" "></i> 
- 	 <%}%>
-  		
+     <%}%>
+     <%for(var s = stars; s < 5; s++){%>
+             <i class="fa fa-star-o" aria-hidden="true" "></i> 
+     <%}%>
+        
  <%}%>
  <%include ./partials/footer%>
 

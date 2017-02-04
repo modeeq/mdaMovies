@@ -17,7 +17,7 @@ watch.forEach(function(watch) {
 
 movie.forEach(function(movie) {
     movie.addEventListener('click', function() {
-        window.location.replace('http://localhost:3000/info/' + movie.id);
+        window.location.replace('/info/' + movie.id);
 
 
 

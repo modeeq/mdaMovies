@@ -1,8 +1,16 @@
 var express = require('express'),
     request = require('request'),
-    api = require('../movieApi');
+    api = require('../movieApi'),
+    passport = require('passport'),
+    middleware = require('../middleware')
+    User   = require('../schema/users');
 
 var router = express.Router();
+
+ router.use(function(req, res, next){
+        res.locals.currentUser = req.user;
+        next();
+ });
 
 var     Playing   = [],
         Popular   = [],
@@ -10,7 +18,7 @@ var     Playing   = [],
         Upcoming  = [],
         AllMovies = [];
   
-
+ 
 
 function allMovies() {
    // clear();
@@ -44,7 +52,7 @@ var addMovie = function(type,movie){
                     break;
            }
  }
-
+ 
 router.get('/', function(req, res) {
       allMovies();
  
@@ -58,9 +66,11 @@ router.get('/', function(req, res) {
                 popular_movies: Popular,
                 top_movies: Top,
                 upcoming_movies: Upcoming,
-                AllMovies:AllMovies
+                AllMovies:AllMovies,
 
             });
+             
+ 
 
 
         } else {
@@ -87,9 +97,94 @@ function clear(){
 
 } 
 
+router.get('/register',function(req,res){
+    res.render('register');
+
+});
+
+router.post('/register',function(req,res){
+        var name = req.body.name;
+        var email = req.body.email;
+        var username = req.body.username;
+        var password = req.body.password;
+
+        User.register(new User({
+                name:name,
+                email:email,
+                username:username
+        }),password,function(err,user){
+            if (err) {
+                console.log(err);
+            }
+            else{
+                passport.authenticate('local')(req,res,function(){
+                   console.log(user);
+                   res.redirect('/');
+                });
+             }
+        }
+
+        );
 
 
 
+});
+
+router.get('/signin',function(req,res){
+    res.render('signin');
+
+});
+ 
+
+router.post('/signin',passport.authenticate('local',{
+    successRedirect:'/',
+    failureRedirect:'/register'
+}),function(req,res){});
+
+router.get('/signout',function(req,res){
+    req.logout();
+    res.redirect('/')
+});
+router.get('/favorites',middleware.isLoggedIn,function(req,res){
+         User.findById(req.user,function(err,user){
+                 res.render('favorites',{movies:user.favorites});
+
+        });
+
+ 
+});
+
+router.post('/favorites/:id',middleware.isLoggedIn,function(req,res){
+    var FoundMovies = 0;
+    var i = 0;
+    var movie;
+          for(var i = 0 ; i < AllMovies.length; i++){
+              if(AllMovies[i].id == req.params.id){
+              movie =  api.AllMovies[i] ;
+        }
+     }
+             User.findById(req.user.id,function(err,user){
+                     user.favorites.push(movie);
+                    for( i ; i < user.favorites.length; i++){ 
+                           if( user.favorites[i].id == req.params.id){
+                             
+                      
+                           }
+                           else{
+                             
+
+                           }
+ 
+                    }
+ 
+             });
+                            console.log(FoundMovies);
+
+ });
+ 
+ // middlewares
+
+ 
 
 
 exports.router = router;

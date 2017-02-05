@@ -3,7 +3,9 @@
  <div class="container"> 
  
  <div class="section">
-    <p>Now Playing</p>
+                     <%var on = 0;%>
+
+     <p>Now Playing</p>
     <% for(var i = 0; i < 8; i++){%>
         <div class="movie">
             <%var rate = playing_movies[i].vote_average %>
@@ -14,8 +16,15 @@
                         <img src="https://image.tmdb.org/t/p/w500/<%=playing_movies[i].poster_path%>">
                       </span> 
                 </div>
+
                 <div class="movie_interaction">
-                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                <form method="post" action="/favorites/<%=playing_movies[i].id%>" class = "movie_interactionForm">  
+                <button class="movie_interactionBtn" > 
+ 
+               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
+
+                   </button>  
+                </form>
                     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
                     <p><em><%=playing_movies[i].genres[0].name%></em></p>
                 </div>
@@ -40,7 +49,14 @@
                         </span>
                 </div>
                 <div class="movie_interaction">
-                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                <form method="post" action="/favorites/<%=top_movies[i].id%>" class = "movie_interactionForm">  
+                <button class="movie_interactionBtn" > 
+ 
+               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
+
+                   </button>  
+                </form>
+
                     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
                     <p><em><%=top_movies[i].genres[0].name%></em></p>
                 </div>
@@ -74,7 +90,14 @@
                         </span>
                 </div>
                 <div class="movie_interaction">
-                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                <form method="post" action="/favorites/<%=popular_movies[i].id%>" class = "movie_interactionForm">  
+                <button class="movie_interactionBtn" > 
+ 
+               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
+
+                   </button>  
+                </form>
+
                     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
                     <p><em><%=popular_movies[i].genres[0].name%></em></p>
                 </div>
@@ -103,7 +126,13 @@
                         </span>
                 </div>
                 <div class="movie_interaction">
-                    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+                <form method="post" action="/favorites/<%=upcoming_movies[i].id%>" class = "movie_interactionForm">  
+                <button class="movie_interactionBtn" > 
+ 
+               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
+
+                   </button>  
+                </form>
                     <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
                     <p><em><%=upcoming_movies[i].genres[0].name%></em></p>
                 </div>
@@ -139,6 +168,9 @@
      <%}%>
         
  <%}%>
+
+ 
+
  <%include ./partials/footer%>
 
       <script type="text/javascript" src="../js/home.js"></script>

@@ -8,8 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="icon" href="http://www.myiconfinder.com/uploads/iconsets/401bacb05a711c6ceabcd9096b29ee1d-clapper.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -18,14 +17,23 @@
             <p> MDA movies</p>
         </a>
         <a class="active item" href="/">
-	       Home
-	     </a>
+         Home
+       </a>
         <a class="item">
-	      Tranding
-	     </a>
+        Tranding
+       </a>
         <a class="item">
-	      What to watch
+        What to watch
          </a>
+             <%if(currentUser){%>
+                    <a class="item" href="/favorites">
+                          Favorites
+                    </a>
+                     <a class="item">
+                          Playlists
+                    </a>
+             <%}%>
+
         <form method="POST" action="/search">
             <div class="ui  icon input">
                 <input class="prompt" type="text" placeholder="Search movies by title" name="term">
@@ -33,12 +41,24 @@
             </div>
         </form>
         <div class="right menu">
-            <a class="item">
-	           Sing In
-		     </a>
-            <a class="item">
-		      Sing Up
-		     </a>
+            <a class="item" href="/">
+                <%if(currentUser){%>
+                    <i class="user icon"></i>
+                    <%=currentUser.username%>
+                    </a>
+                        <a class="item" href="/signout">
+               Sing out
+             </a>
+
+                        <%}else{%>
+                            <a class="item" href="/signin">
+               Sing In
+             </a>
+                            <a class="item" href="/register">
+              Sing Up
+             </a>
+                            <% }%>
+            </a>
         </div>
     </div>
     <script type="text/javascript" src="../js/nav.js"></script>

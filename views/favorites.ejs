@@ -1,0 +1,61 @@
+<%include ./partials/header%>
+
+<div class="result" style="margin:4% 0% 0% 1%;">
+
+ <p>Results </p>
+ 
+<% for(var i = 0; i < movies.length; i++){%>
+    <%if(movies[i].poster_path == null || movies[i].vote_average == 0){}else{%>
+  <div class="movie">
+
+	<%var rate = movies[i].vote_average %>
+ 
+
+	<div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=movies[i].release_date%></em></p>
+          <span class="info" id="<%=movies[i].id%>"> 
+             <img src="https://image.tmdb.org/t/p/w500/<%=movies[i].poster_path%>">
+     
+        </span>
+	</div>
+<div class="movie_interaction">
+    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
+    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+    <%if(movies[i].genres == ''){}else{%>
+        <p><em><%=movies[i].genres[0].name%></em></p>
+        <%}%>
+</div>
+
+
+<div class="movie_trailer">
+     	<a href="/trailer/<%=movies[i].id%>">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+</div>
+  <%}%>
+</div>
+
+  
+<%}%>
+ </div>
+
+<!-- formating rate -->
+ <%function rateFormate(rating){%>
+ 	<% var stars=0;%>
+  	<% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
+
+		 <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
+		<% stars = stars +1;%>
+
+ 	 <%}%>
+ 	 <% if( Math.floor(rating)/2 %1 !=0){ %>
+ 	 		 <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+ 	 		 <%stars = stars+1;%>
+
+ 	 <%}%>
+ 	 <%for(var s = stars; s < 5; s++){%>
+ 	 		 <i class="fa fa-star-o" aria-hidden="true" "></i> 
+ 	 <%}%>
+  		
+ <%}%>
+     <script type="text/javascript" src="../js/home.js"></script>

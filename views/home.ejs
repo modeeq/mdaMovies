@@ -18,14 +18,8 @@
                 </div>
 
                 <div class="movie_interaction">
-                <form method="post" action="/favorites/<%=playing_movies[i].id%>" class = "movie_interactionForm">  
-                <button class="movie_interactionBtn" > 
- 
-               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
-
-                   </button>  
-                </form>
-                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                 
+                   <a href="/info/<%=playing_movies[i].id%>" style="text-decoration: none; color: #929090; "> more info</a>
                     <p><em><%=playing_movies[i].genres[0].name%></em></p>
                 </div>
                 <div class="movie_trailer">
@@ -48,18 +42,11 @@
                          <img src="https://image.tmdb.org/t/p/w500/<%=top_movies[i].poster_path%>">
                         </span>
                 </div>
-                <div class="movie_interaction">
-                <form method="post" action="/favorites/<%=top_movies[i].id%>" class = "movie_interactionForm">  
-                <button class="movie_interactionBtn" > 
- 
-               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
-
-                   </button>  
-                </form>
-
-                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                 <div class="movie_interaction">
+                 
+                   <a href="/info/<%=top_movies[i].id%>" style="text-decoration: none; color: #929090; "> more info</a>
                     <p><em><%=top_movies[i].genres[0].name%></em></p>
-                </div>
+                </div>              
                 <div class="movie_trailer">
                     <a href="/trailer/<%=top_movies[i].id%>">
                         <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
@@ -89,16 +76,9 @@
                          <img src="https://image.tmdb.org/t/p/w500/<%=popular_movies[i].poster_path%>">
                         </span>
                 </div>
-                <div class="movie_interaction">
-                <form method="post" action="/favorites/<%=popular_movies[i].id%>" class = "movie_interactionForm">  
-                <button class="movie_interactionBtn" > 
- 
-               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
-
-                   </button>  
-                </form>
-
-                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                 <div class="movie_interaction">
+                 
+                   <a href="/info/<%=popular_movies[i].id%>" style="text-decoration: none; color: #929090; "> more info</a>
                     <p><em><%=popular_movies[i].genres[0].name%></em></p>
                 </div>
                 <div class="movie_trailer">
@@ -125,15 +105,9 @@
                         <img src="https://image.tmdb.org/t/p/w500/<%=upcoming_movies[i].poster_path%>">
                         </span>
                 </div>
-                <div class="movie_interaction">
-                <form method="post" action="/favorites/<%=upcoming_movies[i].id%>" class = "movie_interactionForm">  
-                <button class="movie_interactionBtn" > 
- 
-               <a <i class="fa fa-heart-o fa-lg" aria-hidden="true" style="color:white;"></i> </a>
-
-                   </button>  
-                </form>
-                    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
+                 <div class="movie_interaction">
+                 
+                   <a href="/info/<%=upcoming_movies[i].id%>" style="text-decoration: none; color: #929090; "> more info</a>
                     <p><em><%=upcoming_movies[i].genres[0].name%></em></p>
                 </div>
                 <div class="movie_trailer">

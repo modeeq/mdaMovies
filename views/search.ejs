@@ -19,13 +19,11 @@
      
         </span>
 	</div>
-<div class="movie_interaction">
-    <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-    <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    <%if(movies[i].genres == ''){}else{%>
-        <p><em><%=movies[i].genres[0].name%></em></p>
-        <%}%>
-</div>
+  <div class="movie_interaction">
+                 
+                   <a href="/info/<%=movies[i].id%>" style="text-decoration: none; color: #929090; "> more info</a>
+                    <p><em><%=movies[i].genres[0].name%></em></p>
+                </div>   
 
 
 <div class="movie_trailer">

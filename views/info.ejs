@@ -41,7 +41,8 @@
  <%if(movie.homepage == ''){}else{%>
 <a href="<%=movie.homepage%> " target="_blank"> Official website</a>
  <%}%>
- </p> 
+ </p>  
+ 
  <div class="related">
 
 <div class="section"> 
@@ -63,16 +64,11 @@
         </span>
   </div>
 
- <div class="movie_interaction">
-    <div class="sub-movie_interaction"> 
-      <a href=""> <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i> </a>
-      <a href=""> <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> </a>
-    </div>
-    <%if(related[i].genres == ''){}else{%>
-        <p><em><%=related[i].genres[0].name%></em></p>
-        <%}%>
-
- </div>
+  <div class="movie_interaction">
+                 
+                   <a href="/info/<%=related[i].id%>" style="text-decoration: none; color: #929090; margin-left: -55px; "> more info</a>
+                    <p><em><%=related[i].genres[0].name%></em></p>
+                </div>   
 
 <div class="movie_trailer">
       <a href="/trailer/<%=related[i].id%>">
@@ -84,18 +80,11 @@
 
 <%}%>
  
- 
   
  </div>
  
-  
 </div>
-
-
-
-
-
-    </div> 
+  </div> 
 <a href='/'>
 <i class="fa fa-times-circle fa-2x" aria-hidden="true" id="close" ></i>
 </a>
@@ -108,7 +97,7 @@
 
   </div>
   
- 
+
 
  
  

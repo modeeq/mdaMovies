@@ -41,6 +41,6 @@ app.use('/search', search);
 app.use('/info', info);
 
 module.exports = app;
-app.listen(process.env.PORT || 2000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log('port 3000 is runing');
 });

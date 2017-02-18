@@ -96,10 +96,21 @@ function clear(){
     }
 
 } 
- 
-  
- // middlewares
+movieOfTheDay();
 
+router.get('/movie_Of_The_Day',function(req,res){
+      res.render('movieOfTheDay',{movie:AllMovies[Rand_movie], related:api.Related });
+ 
+
+});
+
+  setInterval(movieOfTheDay,1000 * 60 * 60 * 24);
+ function movieOfTheDay(){
+ console.log('*****************    Movie of the day  *******************');
+     Rand_movie = Math.floor(Math.random() * 32 ) + 1 ; 
+ 
+}
+ 
  
 
 

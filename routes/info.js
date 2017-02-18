@@ -25,8 +25,7 @@ var router = express.Router();
          // res.send(selectedMovie);
 
           } else {
-            //console.log('___Loading ... ___');
-        }
+         }
     }, 1);
 
 

@@ -24,23 +24,16 @@
         <a href="" class="header item" id="name">
             <p><span> mv </span>-<span style="letter-spacing: 2.3px;"> Trailers</span></p>
         </a>
-        <a class="active item" href="/" style="margin-left: 5%;">
+        <a class=" item" href="/" style="margin-left: 5%;">
          Home
        </a>
-        <a class="item">
-        Tranding
+        <a class=" item" href="/movie_Of_The_Day">
+        movie of the day
        </a>
-        <a class="item">
+        <a class="item" href="">
         What to watch
          </a>
-             <%if(currentUser){%>
-                    <a class="item" href="/favorites">
-                          Favorites
-                    </a>
-                     <a class="item">
-                          Playlists
-                    </a>
-             <%}%>
+            
 
         <form method="POST" action="/search">
             <div class="ui  icon input">
@@ -51,5 +44,6 @@
         <div class="right menu">
             
         </div>
+ 
     </div>
     <script type="text/javascript" src="../js/nav.js"></script>

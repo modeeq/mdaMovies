@@ -146,8 +146,17 @@
  
 
  <%include ./partials/footer%>
+ <script type="text/javascript">
+   
+active = function() {
+    nav = document.querySelectorAll('.item');
+
+    for (var i = 0; i < nav.length; i++)
+        nav[i].classList.remove('active');
+ };
+active();
+nav[1].classList.add('active');
+ </script>
 
       <script type="text/javascript" src="../js/home.js"></script>
-
-
 

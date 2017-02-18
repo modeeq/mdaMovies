@@ -1,0 +1,139 @@
+<%include ./partials/header%>
+<link rel="stylesheet" type="text/css" href="../css/info.css">
+ 
+<div class="infoContainer" >
+<div class="mainImage" id="<%=movie.id%>"> 
+     <img src="https://image.tmdb.org/t/p/w500/<%=movie.poster_path%>">
+    <i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
+
+</div>
+
+<div class="content"> 
+ 
+  <div class="description"> 
+  <h3 style="color: gray;"><em>movie of the day </em>  <i class="fa fa-check"></i></h3>
+
+   <h1><%=movie.original_title%></h1>
+
+  <p><em>Description</em></p>
+ <p><%=movie.overview%></p>
+ <%if(movie.release_date == ''){}else{%>
+  <p><em>Release date: </em> <%=movie.release_date%></p>
+<%}%>
+
+ <p>
+  <%for(var i = 0 ; i < movie.production_countries.length; i++){ %>
+    <% var country = movie.production_countries[i].iso_3166_1%>
+     <i class="<%=country.toLowerCase()%> flag" > </i>
+    <%}%>
+
+</p>
+
+ <%if(movie.vote_average == ''){}else{%>
+
+  <%var rate = movie.vote_average %>
+   <%=rateFormate(rate)%>
+   <%}%>
+<p class="item">  
+<%if(movie.genres.length > 5){ movie.genres.length = 5 }%>
+ <% for(var i = 0 ; i < movie.genres.length; i++){ %>
+   <div  class="ui red  horizontal label "><%=movie.genres[i].name%> </div>
+ <%}%>
+ </p>
+ <%if(movie.homepage == ''){}else{%>
+<a href="<%=movie.homepage%> " target="_blank"> Official website</a>
+ <%}%>
+ </p>  
+ 
+ <div class="related">
+
+<div class="section"> 
+   <%if(related.length >0){ %>
+ <p>Related Movies</p>
+
+<% }%>
+ <%for(i = 0; i < related.length; i++){%>
+ 
+  <div class="movie">
+  <%var rate = related[i].vote_average %>
+ 
+
+  <div class="movie_Header">
+    <%=rateFormate(rate)%>
+        <p><em><%=related[i].release_date%></em></p>
+        <span class="info" id="<%=related[i].id%>"> 
+         <img src="https://image.tmdb.org/t/p/w500/<%=related[i].poster_path%>">
+        </span>
+  </div>
+
+  <div class="movie_interaction">
+                 
+                   <a href="/info/<%=related[i].id%>" style="text-decoration: none; color: #929090; margin-left: -55px; "> more info</a>
+                    <p><em><%=related[i].genres[0].name%></em></p>
+                </div>   
+
+<div class="movie_trailer">
+      <a href="/trailer/<%=related[i].id%>">
+        <i class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>trailer </a>
+</div>
+
+
+</div>
+
+<%}%>
+ 
+  
+ </div>
+ 
+</div>
+  </div> 
+<a href='/'>
+<i class="fa fa-times-circle fa-2x" aria-hidden="true" id="close" ></i>
+</a>
+ 
+ 
+ 
+     
+
+  </div> 
+
+  </div>
+  
+
+
+ 
+ 
+<!-- formating rate -->
+ <%function rateFormate(rating){%>
+  <% var stars=0;%>
+    <% for(var i = 0; i < Math.floor(Math.floor(rating)/2) ; i++){%>
+
+     <i class="fa fa-star fa-lg" aria-hidden="true"></i> 
+    <% stars = stars +1;%>
+
+   <%}%>
+   <% if( Math.floor(rating)/2 %1 !=0){ %>
+       <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> 
+       <%stars = stars+1;%>
+
+   <%}%>
+   <%for(var s = stars; s < 5; s++){%>
+       <i class="fa fa-star-o fa-lg" aria-hidden="true" "></i> 
+   <%}%>
+      
+ <%}%>
+ <script type="text/javascript">
+   
+active = function() {
+    nav = document.querySelectorAll('.item');
+
+    for (var i = 0; i < nav.length; i++)
+        nav[i].classList.remove('active');
+ };
+active();
+nav[2].classList.add('active');
+ </script>
+
+       <script type="text/javascript" src="../js/info.js"></script>
+      <script type="text/javascript" src="../js/home.js"></script>
+ 

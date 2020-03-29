@@ -3,7 +3,7 @@ var express = require('express'),
     home    = require('./routes/home');
 
 var router = express.Router();
-var api_key = '9c7820a5f33a4dff920ff9372328e8c5';
+var api_key = 
 
 var Search = [],
     Related = [],

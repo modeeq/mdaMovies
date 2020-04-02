@@ -21,7 +21,6 @@ var     Playing   = [],
  
 
 function allMovies() {
-   // clear();
     api.search_movie('popular');
     api.search_movie('now_playing');
     api.search_movie('top_rated');
@@ -74,7 +73,7 @@ router.get('/', function(req, res) {
 
 
         } else {
-           // console.log('___Loading ... ___');
+            console.log('___Loading ... ___');
         }
     }, 1);
 
